@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>About MIRP</Title>
+</HEAD>
+<BODY>
+<STYLE type="text/css">
+	BODY{
+		margin: 0px;
+		padding: 0.5em;
+		background-color: #E2E2E2;
+		font-size: 12px;
+		font-family: Courier New;
+	}
+	.calibre14 {
+		background-color: #ddd;
+		border-bottom-color: #000;
+		border-bottom-style: dotted;
+		border-bottom-width: 1px;
+		border-left-color: #000;
+		border-left-style: dotted;
+		border-left-width: 1px;
+		border-right-color: #000;
+		border-right-style: dotted;
+		border-right-width: 1px;
+		border-top-color: #000;
+		border-top-style: dotted;
+		border-top-width: 1px;
+		display: block;
+		font-family: monospace;
+		margin-bottom: 1em;
+		margin-left: 0;
+		margin-right: 0;
+		margin-top: 1em;
+		padding-bottom: 5px;
+		padding-left: 24px;
+		padding-right: 24px;
+		padding-top: 5px;
+		white-space: pre;
+	}
+	.calibre11 {
+		background-color: #404040;
+		border-bottom-color: #000;
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		border-left-color: #000;
+		border-left-style: solid;
+		border-left-width: 1px;
+		border-right-color: #000;
+		border-right-style: solid;
+		border-right-width: 1px;
+		border-top-color: #000;
+		border-top-style: solid;
+		border-top-width: 1px;
+		color: #E5E5E5;
+		display: block;
+		font-size: 200%;
+		font-weight: bold;
+		line-height: 1.2;
+		margin-bottom: 1em;
+		margin-left: 0;
+		margin-right: 0;
+		margin-top: 1em;
+		padding-bottom: 2px;
+		padding-left: 24px;
+		padding-right: 24px;
+		padding-top: 2px;
+	}
+	h1 {
+		display: block;
+		font-size: 1.17em;
+		margin-block-start: 1em;
+		margin-block-end: 1em;
+		margin-inline-start: 0px;
+		margin-inline-end: 0px;
+		font-weight: bold;
+	}
+	h2 {
+		font-size: 150%;
+	}
+	tt {
+		font-size: 110%; 
+	}
+	.sidenav{
+		width: 16em;
+		display: inline-block;
+		border: groove 3px;
+		padding: 4px;
+		height: calc(100% - 22px);
+		position: fixed;
+		z-index: 1;
+		background-color: #E2E2E2;
+		font-weight: bold;
+	}
+	.content{
+		width: calc(100% - 18em);
+		display: inline-block;
+		margin-left: 18em;
+	}
+
+</STYLE>
+<DIV id="sideNav" class=sidenav>
+	<LI><A href="About.htm">About MIRP</A></LI>
+	<P>Instructions and interface</P>
+	<UL>
+		<LI><A href="FirstStart.htm">First start</A></LI>
+		<LI><A href="Menu.htm">Menu content</A></LI>
+		<LI><A href="InputPanel.htm">Input configuration panel</A></LI>
+		<LI><A href="OptionsPanel.htm">Options panel</A></LI>
+		<LI><A href="MIDIPanel.htm">MIDI file player panel</A></LI>
+	</UL>
+	<LI><A href="LayoutDesigner.htm">MIRP Layout Designer</A></LI>
+</DIV>
+<DIV class=content>
+	<H1 class=calibre11>MIRP (MIDI Input to Roblox Piano) Documentation</H1>
+	<HR></HR>
+	<H2>About MIRP</H2>
+	<p>MIRP (MIDI Input to Roblox Piano), as the name implies was designed for use with Roblox Piano in mind. It was first created to make it easier for people to express themselves on a Roblox Virtual Piano by playing music on an real electrical piano/MIDI keyboard, rather than having to press computer keyboard buttons. That, of course, isn't doing much in terms of sound, because there still are no way to implement dynamics and even key hold length, but in terms of comfortability it really makes the job easier.</p>
+	<p>MIRP was made in Python with the use of such libraries as <i>mido</i> and <i>tkinter</i>. It works by reading key press data from an existing MIDI input port (or even a MIDI file) using mido, passing them through a few tests to see if they match the customizable options, converts them into keystrokes using a pre-made customizable layout (<a href=LayoutDesigner.htm>MIRP Layout Designer</a>) and presses them using the <i>SendInput</i> function in <i>user32.dll</i>. Note that the use of this function may trigger an antivirus, but I state that I do not want to harm anyone's PC or data and it is up to you to decide if either you should use this program or not.</p>
+	<HR>
+	<tt><i><p align=center>This work is shared under a Creative Commons Attribution 3.0 Unported License. <img src=cc-by.png></p><p align=center>© GreatCorn, 2020</p></i></tt>
+</DIV>
+</BODY>
+</HTML>

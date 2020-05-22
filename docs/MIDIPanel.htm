@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>MIDI file player panel</Title>
+</HEAD>
+<BODY>
+<STYLE type="text/css">
+	BODY{
+		margin: 0px;
+		padding: 0.5em;
+		background-color: #E2E2E2;
+		font-size: 12px;
+		font-family: Courier New;
+	}
+	.calibre14 {
+		background-color: #ddd;
+		border-bottom-color: #000;
+		border-bottom-style: dotted;
+		border-bottom-width: 1px;
+		border-left-color: #000;
+		border-left-style: dotted;
+		border-left-width: 1px;
+		border-right-color: #000;
+		border-right-style: dotted;
+		border-right-width: 1px;
+		border-top-color: #000;
+		border-top-style: dotted;
+		border-top-width: 1px;
+		display: block;
+		font-family: monospace;
+		margin-bottom: 1em;
+		margin-left: 0;
+		margin-right: 0;
+		margin-top: 1em;
+		padding-bottom: 5px;
+		padding-left: 24px;
+		padding-right: 24px;
+		padding-top: 5px;
+		white-space: pre;
+	}
+	.calibre11 {
+		background-color: #404040;
+		border-bottom-color: #000;
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		border-left-color: #000;
+		border-left-style: solid;
+		border-left-width: 1px;
+		border-right-color: #000;
+		border-right-style: solid;
+		border-right-width: 1px;
+		border-top-color: #000;
+		border-top-style: solid;
+		border-top-width: 1px;
+		color: #E5E5E5;
+		display: block;
+		font-size: 200%;
+		font-weight: bold;
+		line-height: 1.2;
+		margin-bottom: 1em;
+		margin-left: 0;
+		margin-right: 0;
+		margin-top: 1em;
+		padding-bottom: 2px;
+		padding-left: 24px;
+		padding-right: 24px;
+		padding-top: 2px;
+	}
+	h1 {
+		display: block;
+		font-size: 1.17em;
+		margin-block-start: 1em;
+		margin-block-end: 1em;
+		margin-inline-start: 0px;
+		margin-inline-end: 0px;
+		font-weight: bold;
+	}
+	h2 {
+		font-size: 150%;
+	}
+	tt {
+		font-size: 110%; 
+	}
+	.sidenav{
+		width: 16em;
+		display: inline-block;
+		border: groove 3px;
+		padding: 4px;
+		height: calc(100% - 22px);
+		position: fixed;
+		z-index: 1;
+		background-color: #E2E2E2;
+		font-weight: bold;
+	}
+	.content{
+		width: calc(100% - 18em);
+		display: inline-block;
+		margin-left: 18em;
+	}
+
+</STYLE>
+<DIV id="sideNav" class=sidenav>
+	<LI><A href="About.htm">About MIRP</A></LI>
+	<P>Instructions and interface</P>
+	<UL>
+		<LI><A href="FirstStart.htm">First start</A></LI>
+		<LI><A href="Menu.htm">Menu content</A></LI>
+		<LI><A href="InputPanel.htm">Input configuration panel</A></LI>
+		<LI><A href="OptionsPanel.htm">Options panel</A></LI>
+		<LI><A href="MIDIPanel.htm">MIDI file player panel</A></LI>
+	</UL>
+	<LI><A href="LayoutDesigner.htm">MIRP Layout Designer</A></LI>
+</DIV>
+<DIV class=content>
+	<H1 class=calibre11>MIRP (MIDI Input to Roblox Piano) Documentation</H1>
+	<HR></HR>
+	<H2>MIDI file player panel</H2>
+	<img src=MIDIPanel.png>
+	<p>The <b>"MIDI file player"</b> panel contains all the necessary things for the MIDI-file-to-keystrokes feature. Note that before using it a MIDI file should be opened via the <b><a href=Menu.htm>"File"</a></b> submenu.</p>
+	<p>The progress bar indicates the time position in the MIDI file.</p>
+	<p>The Play button plays the MIDI file from the start (if paused, then unpauses it). This can also be done with the <b>"Play MIDI"</b> option found in the <b>"MIDI"</b> submenu.</p>
+	<p>The Pause button pauses the currently playing MIDI, saving its current time location. It can later be unpaused by pressing the Pause button again or pressing the Play button. This can also be done with the <b>"Pause MIDI"</b> option found in the <b>"MIDI"</b> submenu. </p>
+	<p>The Stop button stops the currently playing MIDI, resetting its current time location to start. This can also be done with the <b>"Stop MIDI"</b> option found in the <b>"MIDI"</b> submenu. </p>
+	<p>The <b>"BPM"</b>(Beats Per Minute) textbox is used to set the first tempo (if the tempo changes it will be used to make a multiplier) when playing the MIDI file. It is set automatically to have the first tempo of the opened MIDI file.</p>
+	<p>The <b>"Playback"</b> combobox is used to set the optional playback to a MIDI output device. This combobox will display all available MIDI output devices.  An available device will display its name and number (for example, "Microsoft GS Wavetable Synth 0"). The playback will be transposed to the <b>"Tune"</b> slider value (<a href=OptionsPanel.htm>Options panel</a>).</p>
+
+	<HR>
+	<tt><i><p align=center>This work is shared under a Creative Commons Attribution 3.0 Unported License. <img src=cc-by.png></p><p align=center>© GreatCorn, 2020</p></i></tt>
+</DIV>
+</BODY>
+</HTML>
+
+
