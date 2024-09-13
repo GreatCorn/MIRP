@@ -1,0 +1,534 @@
+object FMain: TFMain
+  Left = 2384
+  Height = 220
+  Top = 562
+  Width = 648
+  Caption = 'MIRP (MIDI Input to Roblox Piano)'
+  ClientHeight = 200
+  ClientWidth = 648
+  Color = 15790320
+  Constraints.MinHeight = 220
+  Constraints.MinWidth = 640
+  Menu = TopMenu
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnResize = ResizeKeys
+  Position = poDefaultPosOnly
+  LCLVersion = '2.0.10.0'
+  object InputFrame: TGroupBox
+    Left = 332
+    Height = 54
+    Top = 48
+    Width = 312
+    Anchors = [akRight, akBottom]
+    Caption = 'Input configuration'
+    ClientHeight = 34
+    ClientWidth = 308
+    TabOrder = 0
+    object InputPorts: TComboBox
+      Left = 48
+      Height = 23
+      Hint = 'Here all available input devices will be displayed.'
+      Top = 6
+      Width = 188
+      ArrowKeysTraverseList = False
+      AutoCompleteText = []
+      AutoSelect = False
+      ItemHeight = 15
+      OnChange = InputPortsChange
+      ParentShowHint = False
+      ShowHint = True
+      Style = csDropDownList
+      TabOrder = 0
+    end
+    object InputLabel: TLabel
+      Left = 4
+      Height = 15
+      Top = 10
+      Width = 38
+      Anchors = [akLeft]
+      AutoSize = False
+      Caption = 'Device:'
+      Font.Height = 16
+      ParentColor = False
+      ParentFont = False
+    end
+    object InputButton: TButton
+      Left = 240
+      Height = 25
+      Top = 5
+      Width = 66
+      Caption = 'Refresh'
+      OnClick = InputButtonClick
+      TabOrder = 1
+    end
+  end
+  object OptionsFrame: TGroupBox
+    Left = 4
+    Height = 140
+    Top = 56
+    Width = 268
+    Anchors = [akLeft, akBottom]
+    Caption = 'Options'
+    ClientHeight = 120
+    ClientWidth = 264
+    TabOrder = 1
+    object ThresholdTrack: TTrackBar
+      Left = 104
+      Height = 23
+      Hint = 'Notes with lower than specified velocity will not be played.'
+      Top = 2
+      Width = 144
+      Max = 127
+      OnChange = ThresholdTrackChange
+      Position = 0
+      TickStyle = tsNone
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+    end
+    object ThresholdShow: TLabel
+      Left = 248
+      Height = 15
+      Top = 4
+      Width = 6
+      Caption = '0'
+      ParentColor = False
+    end
+    object ThresholdLabel: TLabel
+      Left = 4
+      Height = 15
+      Top = 6
+      Width = 97
+      Anchors = [akLeft]
+      Caption = 'Velocity threshold:'
+      ParentColor = False
+    end
+    object TuneLabel: TLabel
+      Left = 4
+      Height = 15
+      Top = 39
+      Width = 29
+      Anchors = [akLeft]
+      Caption = 'Tune:'
+      ParentColor = False
+    end
+    object TuneTrack: TTrackBar
+      Left = 56
+      Height = 23
+      Hint = 'Tunes the input by semitones.'
+      Top = 29
+      Width = 164
+      Max = 36
+      Min = -36
+      OnChange = TuneTrackChange
+      Position = 0
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+    end
+    object TuneM: TButton
+      Left = 40
+      Height = 25
+      Top = 28
+      Width = 16
+      Caption = '-'
+      OnClick = TuneMClick
+      TabOrder = 2
+    end
+    object TuneP: TButton
+      Left = 218
+      Height = 25
+      Top = 28
+      Width = 16
+      Caption = '+'
+      OnClick = TunePClick
+      TabOrder = 3
+    end
+    object TuneShow: TLabel
+      Left = 248
+      Height = 15
+      Top = 33
+      Width = 6
+      Caption = '0'
+      ParentColor = False
+    end
+    object TransposeCheck: TCheckBox
+      Left = 4
+      Height = 19
+      Hint = 'If checked, a note played out of range of the Roblox piano will be transposed a perfect octave higher or lower.'
+      Top = 62
+      Width = 184
+      Caption = 'Transpose out of range octaves'
+      OnChange = TransposeCheckChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 4
+    end
+    object KeyboardCheck: TCheckBox
+      Left = 4
+      Height = 19
+      Hint = 'If checked, the piano keyboard will be displayed.'
+      Top = 82
+      Width = 143
+      Caption = 'Display piano keyboard'
+      OnChange = KeyboardCheckChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 5
+    end
+    object MuteCheck: TCheckBox
+      Left = 152
+      Height = 19
+      Hint = 'If checked, nothing will be played through the keyboard.'
+      Top = 82
+      Width = 48
+      Caption = 'Mute'
+      OnChange = MuteCheckChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 6
+    end
+    object TopCheck: TCheckBox
+      Left = 4
+      Height = 19
+      Hint = 'If checked, the program window will stay on top of other programs.'
+      Top = 101
+      Width = 216
+      Caption = 'Program window always stays on top'
+      OnChange = TopCheckChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 7
+    end
+  end
+  object MIDIFrame: TGroupBox
+    Left = 280
+    Height = 92
+    Top = 104
+    Width = 362
+    Anchors = [akRight, akBottom]
+    Caption = 'MIDI file player'
+    ClientHeight = 72
+    ClientWidth = 358
+    TabOrder = 2
+    object MIDIProgress: TProgressBar
+      Left = 4
+      Height = 12
+      Top = 4
+      Width = 348
+      ParentColor = False
+      Smooth = True
+      TabOrder = 0
+    end
+    object MIDIPlayButton: TButton
+      Left = 4
+      Height = 22
+      Hint = 'Play'
+      Top = 45
+      Width = 20
+      Caption = '▶'
+      OnClick = MIDIPlayButtonClick
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+    end
+    object MIDIPauseButton: TButton
+      Left = 24
+      Height = 22
+      Hint = 'Pause (press End key anytime to execute)'
+      Top = 45
+      Width = 20
+      Caption = '❚❚'
+      OnClick = MIDIPauseButtonClick
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+    end
+    object MIDIStopButton: TButton
+      Left = 44
+      Height = 22
+      Hint = 'Stop'
+      Top = 45
+      Width = 20
+      Caption = '■'
+      OnClick = MIDIStopButtonClick
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 3
+    end
+    object MIDITempo: TSpinEdit
+      Left = 160
+      Height = 23
+      Top = 44
+      Width = 50
+      MaxValue = 0
+      OnChange = MIDITempoChange
+      TabOrder = 4
+      Value = 100
+    end
+    object MIDITempoLabel: TLabel
+      Left = 108
+      Height = 15
+      Top = 47
+      Width = 46
+      Caption = 'Tempo%'
+      ParentColor = False
+    end
+    object OutputPorts: TComboBox
+      Left = 256
+      Height = 23
+      Hint = 'Here all available output devices will be displayed.'
+      Top = 44
+      Width = 96
+      ArrowKeysTraverseList = False
+      AutoCompleteText = []
+      AutoSelect = False
+      ItemHeight = 15
+      OnChange = OutputPortsChange
+      ParentShowHint = False
+      ShowHint = True
+      Style = csDropDownList
+      TabOrder = 5
+    end
+    object OutputLabel: TLabel
+      Left = 214
+      Height = 15
+      Top = 47
+      Width = 38
+      Caption = 'Output'
+      ParentColor = False
+    end
+    object DrumsCheck: TCheckBox
+      Left = 4
+      Height = 19
+      Hint = 'If checked, channel 10 will be played (percussion).'
+      Top = 22
+      Width = 170
+      Caption = 'Play channel 10 (percussion)'
+      OnChange = DrumsCheckChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 6
+    end
+    object MIDIPrevButton: TButton
+      Left = 64
+      Height = 22
+      Hint = 'Previous step'
+      Top = 45
+      Width = 20
+      Caption = '⇦'
+      OnClick = MIDIPrevButtonClick
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 7
+    end
+    object MIDINextButton: TButton
+      Left = 84
+      Height = 22
+      Hint = 'Next step'
+      Top = 45
+      Width = 20
+      Caption = '⇨'
+      OnClick = MIDINextButtonClick
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 8
+    end
+    object DynamicsCheck: TCheckBox
+      Left = 178
+      Height = 19
+      Hint = 'If checked, all note velocities will be set to 64 for output. This is to simulate the sound you will get out of a Roblox piano.'
+      Top = 22
+      Width = 101
+      Caption = 'Level dynamics'
+      OnChange = DynamicsCheckChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 9
+    end
+    object SustainCheck: TCheckBox
+      Left = 284
+      Height = 19
+      Hint = 'If checked, all notes will be played only as note-on without note-off, creating a sustain pedal effect (note that if a MIDI contains sustain pedal data it will still be played). This is to simulate the sound you will get out of a Roblox piano.'
+      Top = 22
+      Width = 58
+      Caption = 'Sustain'
+      OnChange = SustainCheckChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 10
+    end
+  end
+  object TextLabel: TMemo
+    Left = 4
+    Height = 52
+    Top = 4
+    Width = 326
+    BorderStyle = bsNone
+    Color = 15790320
+    Lines.Strings = (
+      'Play any note on your piano keyboard.'
+    )
+    ReadOnly = True
+    TabOrder = 3
+  end
+  object TopMenu: TMainMenu
+    Left = 552
+    object MenuFile: TMenuItem
+      Caption = 'File'
+      object FileMIDIOpen: TMenuItem
+        Caption = 'Open MIDI...'
+        ShortCut = 16463
+        OnClick = FileMIDIOpenClick
+      end
+      object FileMIDIClose: TMenuItem
+        Caption = 'Close MIDI'
+        OnClick = FileMIDICloseClick
+      end
+      object N2: TMenuItem
+        Caption = '-'
+      end
+      object FileCreate: TMenuItem
+        Caption = 'Create layout'
+        ShortCut = 16462
+        OnClick = FileCreateClick
+      end
+      object FileLayout: TMenuItem
+        Caption = 'Open layout...'
+        ShortCut = 16460
+        OnClick = FileLayoutClick
+      end
+      object FileSave: TMenuItem
+        Caption = 'Save layout'
+        ShortCut = 16467
+        OnClick = FileSaveClick
+      end
+      object FileSaveAs: TMenuItem
+        Caption = 'Save layout as...'
+        ShortCut = 24659
+        OnClick = FileSaveAsClick
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object FileExit: TMenuItem
+        Caption = 'Exit'
+        OnClick = FileExitClick
+      end
+    end
+    object MenuEdit: TMenuItem
+      Caption = 'Edit'
+      object EditLayout: TMenuItem
+        AutoCheck = True
+        Caption = 'Layout edit mode'
+        ShortCut = 16453
+        ShowAlwaysCheckable = True
+        OnClick = EditLayoutClick
+      end
+      object N5: TMenuItem
+        Caption = '-'
+      end
+      object EditShiftUp: TMenuItem
+        Caption = 'Shift layout up'
+        ShortCut = 16571
+        OnClick = EditShiftUpClick
+      end
+      object EditShiftDown: TMenuItem
+        Caption = 'Shift layout down'
+        ShortCut = 16573
+        OnClick = EditShiftDownClick
+      end
+    end
+    object MenuMIDI: TMenuItem
+      Caption = 'MIDI'
+      object MIDIPlay: TMenuItem
+        Caption = 'Play MIDI'
+        OnClick = MIDIPlayClick
+      end
+      object MIDIPause: TMenuItem
+        Caption = 'Pause MIDI (press End key)'
+        OnClick = MIDIPauseClick
+      end
+      object MIDIStop: TMenuItem
+        Caption = 'Stop MIDI'
+        OnClick = MIDIStopClick
+      end
+      object N3: TMenuItem
+        Caption = '-'
+      end
+      object MIDIJump: TMenuItem
+        Caption = 'Jump modifier'
+        object MIDIJump1: TMenuItem
+          AutoCheck = True
+          Caption = '1 step'
+          Checked = True
+          RadioItem = True
+          ShortCut = 16433
+          ShowAlwaysCheckable = True
+          OnClick = MIDIJump1Click
+        end
+        object MIDIJump5: TMenuItem
+          AutoCheck = True
+          Caption = '5 steps'
+          RadioItem = True
+          ShortCut = 16434
+          ShowAlwaysCheckable = True
+          OnClick = MIDIJump5Click
+        end
+        object MIDIJump10: TMenuItem
+          AutoCheck = True
+          Caption = '10 steps'
+          RadioItem = True
+          ShortCut = 16435
+          ShowAlwaysCheckable = True
+          OnClick = MIDIJump10Click
+        end
+        object MIDIJump50: TMenuItem
+          AutoCheck = True
+          Caption = '50 steps'
+          RadioItem = True
+          ShortCut = 16436
+          ShowAlwaysCheckable = True
+          OnClick = MIDIJump50Click
+        end
+        object N4: TMenuItem
+          Caption = '-'
+        end
+        object MIDIJumpCustom: TMenuItem
+          Caption = 'Custom value...'
+          RadioItem = True
+          ShortCut = 16437
+          OnClick = MIDIJumpCustomClick
+        end
+      end
+    end
+    object MenuHelp: TMenuItem
+      Caption = 'Help'
+      object HelpAbout: TMenuItem
+        Caption = 'About'
+        ShortCut = 112
+        OnClick = HelpAboutClick
+      end
+    end
+  end
+  object OpenLayout: TOpenDialog
+    DefaultExt = '.mlf'
+    Filter = 'MIRP layout files|*.mlf|All files|*.*'
+    Options = [ofPathMustExist, ofFileMustExist, ofEnableSizing]
+    Left = 528
+  end
+  object OpenMIDIDialog: TOpenDialog
+    DefaultExt = '.mlf'
+    Filter = 'MIDI files|*.mid;*.midi|All files|*.*'
+    Options = [ofPathMustExist, ofFileMustExist, ofEnableSizing]
+    Left = 504
+  end
+  object SaveLayoutDialog: TSaveDialog
+    Title = 'Save file'
+    DefaultExt = '.mlf'
+    Filter = 'MIRP layout files|*.mlf|All files|*.*'
+    Options = [ofPathMustExist, ofCreatePrompt, ofEnableSizing, ofViewDetail]
+    Left = 576
+  end
+end
